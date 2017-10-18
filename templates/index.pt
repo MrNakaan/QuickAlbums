@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+		<nav>
+			<div class="nav-wrapper indigo darken-1">
+				<a href="#" class="brand-logo center">Quick Albums</a>
+			</div>
+		</nav>
+	
+		<div class="container">
+			<div class="row">
+				<div class="col center-align s12">
+					<h3>${count} Available Albums</h3>
+				</div>
+			</div>
+			<div class="row valign-wrapper" tal:repeat="row pages">
+				<div class="col s6${' ' + lastRowCss if lastRowCss is not None and repeat.row.number == len(pages) else ''}" tal:repeat="col row">
+					<div class="card">
+						<div class="card-image">
+							<a href="${col[1]}">
+								<img class="responsive-img" src="${col[2]}/${col[3]}">
+							</a>
+						</div>
+						<div class="card-content center-align">
+							<a href="${col[1]}" tal:content="col[0]"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!--Import jQuery before materialize.js-->
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/materialize.min.js"></script>
+	</body>
+</html>
