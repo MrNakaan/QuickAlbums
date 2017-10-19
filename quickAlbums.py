@@ -104,8 +104,8 @@ def main():
 	albums = readAlbumDefinitions()
 	clearBuiltTemplates()
 	buildTemplates(albums)
-	#print("Pages built, starting server.")
-	#runServer()
+	print("Pages built, starting server.")
+	runServer()
 	
 if __name__ == "__main__":
 	main()
