@@ -23,7 +23,7 @@ def buildAlbumPages(template, albums):
 		files = os.listdir(albums[key][0])
 		rows = buildRows(files)
 		
-		lastRowClasses = ""
+		lastRowClasses = None
 		if (len(rows[len(rows) - 1]) % 2 is 1):
 			lastRowClasses += " push-s3"
 		
