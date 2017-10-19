@@ -20,7 +20,7 @@ def buildRows(files):
 	
 def buildAlbumPages(template, albums):
 	for key in albums.keys():
-		files = os.listdir(albums[key][0])
+		files = sorted(os.listdir(albums[key][0]))
 		rows = buildRows(files)
 		
 		lastRowClasses = None
