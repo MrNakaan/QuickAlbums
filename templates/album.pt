@@ -8,7 +8,8 @@
 	<body>
 		<nav>
 			<div class="nav-wrapper indigo darken-1">
-				<a href="/" class="brand-logo center">Quick Albums</a>
+				<a href="/" class="brand-logo center hide-on-small-only">Quick Albums</a>
+				<a href="/" class="brand-logo center hide-on-med-and-up">Q-Albums</a><a href="/" class="brand-logo center hide-on-small-only">Quick Albums</a>
 			</div>
 		</nav>
 		<div class="container">
@@ -25,7 +26,7 @@
 							<img class="materialboxed responsive-img" src="${dir}/${col}">
 						</div>
 						<div class="card-content center-align">
-							<span>#</span><span tal:content="(repeat.row.index * 3) + repeat.col.number"></span>
+							<span>#</span><span tal:content="(repeat.row.index * 4) + repeat.col.number"></span>
 						</div>
 					</div>
 				</div>

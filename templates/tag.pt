@@ -8,7 +8,8 @@
 	<body>
 		<nav>
 			<div class="nav-wrapper indigo darken-1">
-				<a href="/" class="brand-logo center">Quick Albums</a>
+				<a href="/" class="brand-logo center hide-on-small-only">Quick Albums</a>
+				<a href="/" class="brand-logo center hide-on-med-and-up">Q-Albums</a>
 			</div>
 		</nav>
 		<div class="container">
