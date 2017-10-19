@@ -8,7 +8,7 @@ def buildRows(files):
 	col = 0
 	
 	for file in files:
-		if col == 3:
+		if col == 4:
 			row += 1
 			col = 0
 		if col == 0:
@@ -23,11 +23,9 @@ def buildAlbumPages(template, albums):
 		files = os.listdir(albums[key][0])
 		rows = buildRows(files)
 		
-		lastRowClasses = None
-		if (len(rows[len(rows) - 1]) % 3 is 1):
-			lastRowClasses = "push-s4"
-		elif (len(rows[len(rows) - 1]) % 3 is 2):
-			lastRowClasses = "push-s2"
+		lastRowClasses = ""
+		if (len(rows[len(rows) - 1]) % 2 is 1):
+			lastRowClasses += " push-s3"
 		
 		markup = template(title=albums[key][2] + " - " + key, count=len(files), dir=albums[key][0], images=rows, lastRowCss=lastRowClasses)
 		output = open(albums[key][1] + ".htm", "w")
@@ -55,7 +53,7 @@ def buildTagPages(template, albums):
 		lastRowClasses = None
 		if (len(pageList[len(pageList) - 1]) % 2 is 1):
 			lastRowClasses = "offset-m3"
-		markup = template(count=len(albumKeys), pages=pageList, lastRowCss=lastRowClasses, tag=tag)
+		markup = template(count=len(albumKeys), albums=pageList, lastRowCss=lastRowClasses, tag=tag)
 		output = open(pattern.sub("", tag) + ".htm", "w")
 		output.write(markup)
 		output.close()
@@ -68,7 +66,7 @@ def buildIndex(template, albums, tags):
 	lastRowClasses = None
 	if (len(pageList[len(pageList) - 1]) % 2 is 1):
 		lastRowClasses = "offset-m3"
-	markup = template(albumCount=len(albums), tagCount=len(tags), pages=pageList, tags=tags, lastRowCss=lastRowClasses)
+	markup = template(albumCount=len(albums), tagCount=len(tags), albums=pageList, tags=tags, lastRowCss=lastRowClasses)
 	output = open("index.htm", "w")
 	output.write(markup)
 	output.close()

@@ -19,8 +19,8 @@
 			</div>
 			<div class="section">
 				<h5 class="center-align">Albums</h5>
-				<div class="row" tal:repeat="row pages">
-					<div class="col s12 m6${' ' + lastRowCss if lastRowCss is not None and repeat.row.number == len(pages) else ''}" tal:repeat="col row">
+				<div class="row" tal:repeat="row albums">
+					<div class="col s12 m6${' ' + lastRowCss if lastRowCss is not None and repeat.row.number == len(albums) else ''}" tal:repeat="col row">
 						<div class="card">
 							<div class="card-image">
 								<a href="${col[1]}">
