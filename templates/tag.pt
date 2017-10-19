@@ -13,18 +13,18 @@
 	<body>
 		<nav>
 			<div class="nav-wrapper indigo darken-1">
-				<a href="#" class="brand-logo center">Quick Albums</a>
+				<a href="/" class="brand-logo center">Quick Albums</a>
 			</div>
 		</nav>
 	
 		<div class="container">
 			<div class="row">
 				<div class="col center-align s12">
-					<h3>${count} Available Albums</h3>
+					<h3>${count} Album${'s' if count is not 1 else ''} with tag "${tag}"</h3>
 				</div>
 			</div>
-			<div class="row valign-wrapper" tal:repeat="row pages">
-				<div class="col s6${' ' + lastRowCss if lastRowCss is not None and repeat.row.number == len(pages) else ''}" tal:repeat="col row">
+			<div class="row" tal:repeat="row pages">
+				<div class="col s12 m6${' ' + lastRowCss if lastRowCss is not None and repeat.row.number == len(pages) else ''}" tal:repeat="col row">
 					<div class="card">
 						<div class="card-image">
 							<a href="${col[1]}">

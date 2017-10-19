@@ -13,27 +13,42 @@
 	<body>
 		<nav>
 			<div class="nav-wrapper indigo darken-1">
-				<a href="#" class="brand-logo center">Quick Albums</a>
+				<a href="/" class="brand-logo center">Quick Albums</a>
 			</div>
 		</nav>
 	
 		<div class="container">
 			<div class="row">
 				<div class="col center-align s12">
-					<h3>${count} Available Albums</h3>
+					<h3>${albumCount} Album${'s' if albumCount is not 1 else ''} and ${tagCount} Tag${'s' if tagCount is not 1 else ''}</h3>
 				</div>
 			</div>
-			<div class="row valign-wrapper" tal:repeat="row pages">
-				<div class="col s6${' ' + lastRowCss if lastRowCss is not None and repeat.row.number == len(pages) else ''}" tal:repeat="col row">
-					<div class="card">
-						<div class="card-image">
-							<a href="${col[1]}">
-								<img class="responsive-img" src="${col[2]}/${col[3]}">
-							</a>
+			<div class="section">
+				<h5 class="center-align">Albums</h5>
+				<div class="row" tal:repeat="row pages">
+					<div class="col s12 m6${' ' + lastRowCss if lastRowCss is not None and repeat.row.number == len(pages) else ''}" tal:repeat="col row">
+						<div class="card">
+							<div class="card-image">
+								<a href="${col[1]}">
+									<img class="responsive-img" src="${col[2]}/${col[3]}">
+								</a>
+							</div>
+							<div class="card-content center-align">
+								<a href="${col[1]}" tal:content="col[0]"></a>
+							</div>
 						</div>
-						<div class="card-content center-align">
-							<a href="${col[1]}" tal:content="col[0]"></a>
-						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section">
+				<h5 class="center-align">Tags</h5>
+				<div class="row">
+					<div class="col s12 m8 l6 offset-m2 offset-l3">
+						<ul class="collection">
+							<li class="collection-item" tal:repeat="tag tags">
+								<a href="${tag[1] + '.htm'}" tal:content="tag[0]">
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
