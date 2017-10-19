@@ -25,7 +25,7 @@ def buildAlbumPages(template, albums):
 		
 		lastRowClasses = None
 		if (len(rows[len(rows) - 1]) % 2 is 1):
-			lastRowClasses += " push-s3"
+			lastRowClasses = " push-s3"
 		
 		markup = template(title=key, count=len(files), dir=albums[key][0], images=rows, lastRowCss=lastRowClasses)
 		output = open(albums[key][1] + ".htm", "w")
