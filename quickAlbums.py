@@ -1,6 +1,9 @@
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from chameleon import PageTemplateLoader
-import os, urllib, re
+import os, urllib, re, socketserver
+
+class ThreadingSimpleServer(socketserver.ThreadingMixIn, HTTPServer):
+    pass
 
 def buildRows(files):
 	rows = []
@@ -94,7 +97,7 @@ def buildTemplates(albums):
 	
 def runServer():
     serverAddress = ('', 8000)
-    httpd = HTTPServer(serverAddress, SimpleHTTPRequestHandler)
+    httpd = ThreadingSimpleServer(serverAddress, SimpleHTTPRequestHandler)
     httpd.serve_forever()
 	
 def main():
