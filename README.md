@@ -3,7 +3,7 @@
 Quick Albums is a fast and easy way to spin up a no-frills server for serving up image galleries. To get running, you only need to do 4 things:
 
 1. Install Python 3.4+
-2. Install Chameleon for Python with `easy_install Chameleon`
+2. Install requirements: `pip install -r requirements.txt`
 3. Build your `definitions.txt` file
 4. Run quickAlbums.py
 
